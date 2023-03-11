@@ -6,15 +6,50 @@ import java.util.Scanner;
 import java.util.Random;
 public class Main {
     public static void main(String[] args) throws IOException {
+        Scanner in = new Scanner(System.in);
+        int[] arr = new int[]{3,-3,7,4,5,4,3};
 
         // 1 Часть
-        for( int i = 1; i < 101;i++){   // 1 Задание
+        oddMuber(); // 1 Задание
+
+        Division();  // 2 Задание
+
+        Sum(in);    // 3 Задание
+
+        moreLess(in); // 4 Задание
+
+        firstLastNumber(arr); //Задание 5
+
+        Finding(arr);  // Задание 6
+
+
+        // 2 Часть
+
+        int[] array = new int[]{1,2,3,4,5,6,7,8};
+        int[] arrChange = new int[]{5,6,7,2};
+        int[] uniqe = new int[]{1,5,2,3,0,2,4,3,5,7,4,8};
+
+        Sorted(array);  // 1 Задание
+
+        Array(in);  // 2 Задание
+
+        firstLastNumberChange(arrChange);   // 3 Задание
+
+        uniqArray(uniqe);   // 4 Задание
+
+        randomArr();    // 5 Задание
+
+    }
+
+    public static void oddMuber(){
+        for( int i = 1; i < 101;i++){
             if(i % 2 == 1){
                 System.out.println(i);
             }
         }
-
-        for( int i = 1; i < 101;i++){   // 2 Задание
+    }
+    public static void Division(){
+        for( int i = 1; i < 101;i++){
             if(i % 3 == 0){
                 System.out.println("Делится на 3: " + i);
             }
@@ -26,8 +61,9 @@ public class Main {
             }
 
         }
+    }
+    public static void Sum(Scanner in){
 
-        Scanner in = new Scanner(System.in); // 3 Задание
         System.out.println("Введите первое число: ");
         int num1 = in.nextInt();
         System.out.println("Введите второе число: ");
@@ -39,11 +75,13 @@ public class Main {
             System.out.println("Результат: true");
         }
 
+    }
+    public static void moreLess(Scanner in){
 
-        System.out.println("Введите первое число: ");// 4 Задание
-        num1 = in.nextInt();
+        System.out.println("Введите первое число: ");
+        int num1 = in.nextInt();
         System.out.println("Введите второе число: ");
-        num2 = in.nextInt();
+        int num2 = in.nextInt();
         System.out.println("Введите третье число: ");
         int num3 = in.nextInt();
 
@@ -51,26 +89,26 @@ public class Main {
             System.out.println("Результат: true");
         }
 
+    }
+    public static void firstLastNumber(int[] arr){
 
-        int[] arr = new int[]{3,-3,7,4,5,4,3};   //Задание 5
         System.out.println("Массив: " + Arrays.toString(arr));
         if(arr[0] == 3 || arr[arr.length-1]==3){
             System.out.println("true. Первый или последний элемент = 3 ");
         }
-
-        for(int i = 0; i < arr.length;i++){  // Задание 6
+    }
+    public static void Finding(int[] arr){
+        for(int i = 0; i < arr.length;i++){
             if(arr[i] == 1 || arr[i] == 3){
                 System.out.println("Массив содержит число - " + arr[i]);
             }
         }
-
-        // 2 Часть
-
-        int[] array = new int[]{1,2,3,4,5,6,7,8};   // 1 Задание
-        System.out.println("Массив: " + Arrays.toString(array));
+    }
+    public static void Sorted(int[] arr){
+        System.out.println("Массив: " + Arrays.toString(arr));
         boolean status = true;
-        for(int i = 0 ; i < array.length - 1; i++){
-            if(array[i] > array[i+1]){
+        for(int i = 0 ; i < arr.length - 1; i++){
+            if(arr[i] > arr[i+1]){
                 status = false;
                 break;
             }
@@ -80,8 +118,10 @@ public class Main {
         }else{
             System.out.println("Please, try again");
         }
+    }
 
-        System.out.println("Array length: ");   // 2 Задание
+    public static void Array(Scanner in){
+        System.out.println("Array length: ");
         int arrLen = in.nextInt();
         int[] ints = new int[arrLen];
         for(int i = 0 ; i < ints.length; i++){
@@ -89,30 +129,34 @@ public class Main {
         }
         System.out.println("Result: " + Arrays.toString(ints));
 
-        int[] arrChange = new int[]{5,6,7,2};   // 3 Задание
-        System.out.println("Array 1: " + Arrays.toString(arrChange));
-        int[] changedArr = ChangeArray(arrChange);
+    }
+    public static void firstLastNumberChange(int[] arr){
+
+        System.out.println("Array 1: " + Arrays.toString(arr));
+        int[] changedArr = ChangeArray(arr);
         System.out.println("Array 2: " + Arrays.toString(changedArr));
+    }
 
+    public static void uniqArray(int[] arr){
+        System.out.println("Массив уникальности: " + Arrays.toString(arr));
 
-        int[] uniqe = new int[]{1,5,2,3,0,2,4,3,5,7,4,8};   // 4 Задание
-        System.out.println("Массив уникальности: " + Arrays.toString(uniqe));
-
-        for (int i = 0 ; i < uniqe.length; i++){
+        for (int i = 0 ; i < arr.length; i++){
             boolean uniq = false;
-            for(int j = 0 ; j < uniqe.length;j++){
-                if(uniqe[i] == uniqe[j] && i != j){
+            for(int j = 0 ; j < arr.length;j++){
+                if(arr[i] == arr[j] && i != j){
                     uniq=false;
                     break;
                 }
                 uniq=true;
             }
             if(uniq == true){
-                System.out.println("Уникальное число: " + uniqe[i]);
+                System.out.println("Уникальное число: " + arr[i]);
                 break;
             }
         }
-        Random random = new Random();   // 5 Задание
+    }
+    public static void randomArr(){
+        Random random = new Random();
         int[] randArray = new int[10];
         for (int i = 0 ; i < randArray.length;i++){
             randArray[i] = random.nextInt(100);
@@ -121,9 +165,6 @@ public class Main {
         int[] result = Sorting(randArray);
         System.out.println(Arrays.toString(result));
     }
-
-
-
     public static int[] ChangeArray(int[] arr){
         int c = arr[0];
         arr[0] = arr[arr.length-1];
