@@ -50,11 +50,10 @@ public class Main {
         str = str.toLowerCase();
         StringBuilder strBuilder = new StringBuilder(str);
         String reverseStr = strBuilder.reverse().toString();
-        for(int i = 0;i<str.length();i++){
-            if(str.charAt(i) != reverseStr.charAt(i))
-                return false;
+        if(str.equals(reverseStr)){
+            return true;
         }
-        return true;
+        return false;
     }
 
     public static String replaceBadWord(String str,String badWord){    // Метод 3 задания.

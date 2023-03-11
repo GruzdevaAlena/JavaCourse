@@ -18,7 +18,7 @@ public class Main {
 
         moreLess(in); // 4 Задание
 
-        firstLastNumber(arr); //Задание 5
+        firstRLastNumberContains(arr); //Задание 5
 
         Finding(arr);  // Задание 6
 
@@ -31,13 +31,13 @@ public class Main {
 
         Sorted(array);  // 1 Задание
 
-        Array(in);  // 2 Задание
+        arrayInput(in);  // 2 Задание
 
-        firstLastNumberChange(arrChange);   // 3 Задание
+        firstNLastNumberChange(arrChange);   // 3 Задание
 
         uniqArray(uniqe);   // 4 Задание
 
-        randomArr();    // 5 Задание
+        randomArray();    // 5 Задание
 
     }
 
@@ -74,7 +74,6 @@ public class Main {
         if(num1 + num2 == sum){
             System.out.println("Результат: true");
         }
-
     }
     public static void moreLess(Scanner in){
 
@@ -90,11 +89,11 @@ public class Main {
         }
 
     }
-    public static void firstLastNumber(int[] arr){
+    public static void firstRLastNumberContains(int[] arr){
 
         System.out.println("Массив: " + Arrays.toString(arr));
         if(arr[0] == 3 || arr[arr.length-1]==3){
-            System.out.println("true. Первый или последний элемент = 3 ");
+            System.out.println("true. Первый или последний элемент =  " + 3);
         }
     }
     public static void Finding(int[] arr){
@@ -120,7 +119,7 @@ public class Main {
         }
     }
 
-    public static void Array(Scanner in){
+    public static void arrayInput(Scanner in){
         System.out.println("Array length: ");
         int arrLen = in.nextInt();
         int[] ints = new int[arrLen];
@@ -130,7 +129,7 @@ public class Main {
         System.out.println("Result: " + Arrays.toString(ints));
 
     }
-    public static void firstLastNumberChange(int[] arr){
+    public static void firstNLastNumberChange(int[] arr){
 
         System.out.println("Array 1: " + Arrays.toString(arr));
         int[] changedArr = ChangeArray(arr);
@@ -155,7 +154,7 @@ public class Main {
             }
         }
     }
-    public static void randomArr(){
+    public static void randomArray(){
         Random random = new Random();
         int[] randArray = new int[10];
         for (int i = 0 ; i < randArray.length;i++){
