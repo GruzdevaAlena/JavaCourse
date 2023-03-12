@@ -10,17 +10,28 @@ public class Main {
         int[] arr = new int[]{3,-3,7,4,5,4,3};
 
         // 1 Часть
-        oddMuber(); // 1 Задание
+        oddNuber(); // 1 Задание
 
-        Division();  // 2 Задание
+        division();  // 2 Задание
 
-        Sum(in);    // 3 Задание
+        if(sum(in) == true){  // 3 Задание
+            System.out.println("Результат: true");
+        }else{
+            System.out.println("Результат: false");
+        }
 
-        moreLess(in); // 4 Задание
+        if(moreLess(in) == true){   // 4 Задание
+            System.out.println("Результат: true");
+        }else {
+            System.out.println("Результат: false");
+        }
 
-        firstRLastNumberContains(arr); //Задание 5
-
-        Finding(arr);  // Задание 6
+        if(firstRLastNumberContains(arr) == true) {   // 5 Задание
+            System.out.println("true.");
+        }else{
+            System.out.println("false.");
+        }
+        finding(arr);  // 6 Задание
 
 
         // 2 Часть
@@ -29,7 +40,7 @@ public class Main {
         int[] arrChange = new int[]{5,6,7,2};
         int[] uniqe = new int[]{1,5,2,3,0,2,4,3,5,7,4,8};
 
-        Sorted(array);  // 1 Задание
+        sorted(array);  // 1 Задание
 
         arrayInput(in);  // 2 Задание
 
@@ -41,14 +52,14 @@ public class Main {
 
     }
 
-    public static void oddMuber(){
+    public static void oddNuber(){
         for( int i = 1; i < 101;i++){
             if(i % 2 == 1){
                 System.out.println(i);
             }
         }
     }
-    public static void Division(){
+    public static void division(){
         for( int i = 1; i < 101;i++){
             if(i % 3 == 0){
                 System.out.println("Делится на 3: " + i);
@@ -62,7 +73,7 @@ public class Main {
 
         }
     }
-    public static void Sum(Scanner in){
+    public static boolean sum(Scanner in){
 
         System.out.println("Введите первое число: ");
         int num1 = in.nextInt();
@@ -72,10 +83,11 @@ public class Main {
         int sum = in.nextInt();
 
         if(num1 + num2 == sum){
-            System.out.println("Результат: true");
+            return true;
         }
+        return false;
     }
-    public static void moreLess(Scanner in){
+    public static boolean moreLess(Scanner in){
 
         System.out.println("Введите первое число: ");
         int num1 = in.nextInt();
@@ -85,25 +97,26 @@ public class Main {
         int num3 = in.nextInt();
 
         if(num1 < num2 && num2 < num3){
-            System.out.println("Результат: true");
+            return true;
         }
-
+        return false;
     }
-    public static void firstRLastNumberContains(int[] arr){
+    public static boolean firstRLastNumberContains(int[] arr){
 
         System.out.println("Массив: " + Arrays.toString(arr));
         if(arr[0] == 3 || arr[arr.length-1]==3){
-            System.out.println("true. Первый или последний элемент =  " + 3);
+            return true;
         }
+        return false;
     }
-    public static void Finding(int[] arr){
+    public static void finding(int[] arr){
         for(int i = 0; i < arr.length;i++){
             if(arr[i] == 1 || arr[i] == 3){
                 System.out.println("Массив содержит число - " + arr[i]);
             }
         }
     }
-    public static void Sorted(int[] arr){
+    public static void sorted(int[] arr){
         System.out.println("Массив: " + Arrays.toString(arr));
         boolean status = true;
         for(int i = 0 ; i < arr.length - 1; i++){
