@@ -1,13 +1,15 @@
 package JavaCorse.Lab06.Task5;
 
+import java.util.Scanner;
+
 public class Client extends People{
 
-    public Client(String Name,int age){
-        super(Name,age);
+    public Client(Scanner in){
+        super(in);
     }
 
     @Override
-    public void Print(){
+    public void print(){
         System.out.println("Имя пользователя - " + super.name);
     }
 }

@@ -15,5 +15,5 @@ public abstract class People implements IPeople{
         return surname;
     }
 
-    public abstract  void Display();
+    public abstract  void display();
 }

@@ -1,12 +1,18 @@
 package JavaCorse.Lab06.Task5;
+import java.util.Scanner;
+
 
 public class Main {
     public static void main(String[] args) {
-        People people = new People("Александр", 20);
-        people.Print();
 
-        People client = new Client("Иван", 25);
-        client.Print();
+        Scanner in = new Scanner(System.in);
+
+        People people = new People(in);
+        people.print();
+
+
+        People client = new Client(in);
+        client.print();
 
 
     }

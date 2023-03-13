@@ -7,7 +7,7 @@ public class Worker extends  People{
         this.bank = bank;
     }
 
-    public void Display() {
+    public void display() {
         System.out.printf("Данные работника:\n Имя - %s \n Фамилия - %s \n Банк - %s \n",super.getName(),super.getSurname(),bank);
     }
 }
