@@ -3,6 +3,9 @@ package JavaCorse.zachet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 // 2 лр
@@ -95,38 +98,42 @@ public class MainConcurrent {
     private void lab3_1method() throws InterruptedException {
         Counter counter = new Counter();
 
+        ExecutorService executorService = Executors.newFixedThreadPool(100);
+
+
         for (int i = 0; i < 100; i++) {
-            var t = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    for (int i = 0; i < 1000; i++) {
-                        counter.increment();
-                    }
+
+            executorService.submit(() -> {
+                for (int i1 = 0; i1 < 1000; i1++) {
+                    counter.increment();
                 }
             });
-            t.start();
         }
 
-        Thread.sleep(1000);
+        executorService.shutdown();
+        executorService.awaitTermination(1, TimeUnit.DAYS);
+
         System.out.println(counter.getCount());
     }
 
     private void lab3_2method() throws InterruptedException {
-        Counter1 counter = new Counter1();
+        Counter counter = new Counter();
+
+        ExecutorService executorService = Executors.newFixedThreadPool(100);
+
 
         for (int i = 0; i < 100; i++) {
-            var t = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    for (int i = 0; i < 1000; i++) {
-                        counter.increment();
-                    }
+
+            executorService.submit(() -> {
+                for (int i1 = 0; i1 < 1000; i1++) {
+                    counter.increment();
                 }
             });
-            t.start();
         }
 
-        Thread.sleep(1000);
+        executorService.shutdown();
+        executorService.awaitTermination(1, TimeUnit.DAYS);
+
         System.out.println(counter.getCount());
     }
 
